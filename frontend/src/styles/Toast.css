@@ -1,0 +1,157 @@
+.toast {
+  position: fixed;
+  top: 80px;
+  right: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  z-index: 9999;
+  animation: slideDown 0.3s ease-out;
+  border-top: 3px solid;
+  max-width: none;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.toast__content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.toast__content svg {
+  flex-shrink: 0;
+}
+
+.toast__buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.toast__btn {
+  padding: 0.35rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.toast__btn--yes {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.toast__btn--yes:hover {
+  background: rgba(34, 197, 94, 0.3);
+  border-color: rgba(34, 197, 94, 0.6);
+}
+
+.toast__btn--no {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.toast__btn--no:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+.toast__message {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #050505;
+  line-height: 1.2;
+}
+
+/* Success Toast */
+.toast--success {
+  border-top-color: #22c55e;
+}
+
+.toast--success .toast__message {
+  color: #22c55e;
+}
+
+.toast--success svg {
+  color: #22c55e;
+}
+
+/* Error Toast */
+.toast--error {
+  border-top-color: #ef4444;
+}
+
+.toast--error .toast__message {
+  color: #ef4444;
+}
+
+.toast--error svg {
+  color: #ef4444;
+}
+
+/* Warning Toast */
+.toast--warning {
+  border-top-color: #f59e0b;
+}
+
+.toast--warning .toast__message {
+  color: #f59e0b;
+}
+
+.toast--warning svg {
+  color: #f59e0b;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toast {
+    top: 70px;
+    right: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .toast__message {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    top: 70px;
+    right: 0.75rem;
+    left: 0.75rem;
+    padding: 0.6rem 1rem;
+    min-width: auto;
+  }
+
+  .toast__message {
+    font-size: 0.75rem;
+  }
+}

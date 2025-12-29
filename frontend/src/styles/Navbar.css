@@ -1,0 +1,331 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.navbar.is-scrolled {
+  background: rgba(5, 5, 5, 0.95);
+  border-bottom-color: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.navbar__brand:hover,
+.navbar__brand:focus-visible {
+  opacity: 0.8;
+  outline: none;
+}
+
+.navbar__logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.navbar__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.navbar__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-gold, #d4af37);
+  letter-spacing: 0.1em;
+}
+
+.navbar__tagline {
+  font-size: 0.65rem;
+  color: rgba(212, 175, 55, 0.7);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links a {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: rgba(245, 245, 245, 0.85);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus-visible {
+  color: var(--color-gold, #d4af37);
+  outline: none;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold, #d4af37);
+  transition: width 0.3s ease;
+}
+
+.navbar__links a:hover::after,
+.navbar__links a:focus-visible::after {
+  width: 100%;
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.navbar__toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--color-gold, #d4af37);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar__toggle.is-open span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.navbar__toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle.is-open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.navbar__user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar__user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar__user-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.navbar__user-info:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+
+.navbar__user-info:hover::before {
+  left: 100%;
+}
+
+.navbar__username {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar__logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar__logout-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.navbar__logout-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+
+.navbar__logout-btn:hover::before {
+  left: 100%;
+}
+
+.navbar__logout-btn:active {
+  transform: scale(0.95);
+}
+
+.navbar__logout-text {
+  display: inline;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+    padding: 0 1.5rem;
+  }
+
+  .navbar__logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar__name {
+    font-size: 1rem;
+  }
+
+  .navbar__tagline {
+    font-size: 0.6rem;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    background: rgba(5, 5, 5, 0.98);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .navbar__links.is-open {
+    transform: translateX(0);
+  }
+
+  .navbar__links a {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 60px;
+    padding: 0 1rem;
+  }
+
+  .navbar__logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar__name {
+    font-size: 0.9rem;
+  }
+
+  .navbar__tagline {
+    display: none;
+  }
+
+  .navbar__links {
+    top: 60px;
+  }
+
+  .navbar__user-section {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  .navbar__user-info {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navbar__logout-btn {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

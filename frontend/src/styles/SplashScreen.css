@@ -1,0 +1,431 @@
+/* ============================================
+   SPLASH SCREEN ANIMATIONS
+   ============================================ */
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Background with gradient animation */
+.splash-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+}
+
+.splash-gradient-1 {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  animation: gradientShift1 8s ease-in-out infinite;
+}
+
+.splash-gradient-2 {
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(139, 117, 0, 0.1) 0%, transparent 70%);
+  animation: gradientShift2 10s ease-in-out infinite;
+}
+
+@keyframes gradientShift1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -30px);
+  }
+}
+
+@keyframes gradientShift2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 30px);
+  }
+}
+
+/* Animated particles */
+.splash-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(212, 175, 55, 0.6);
+  border-radius: 50%;
+  animation: particleFloat 6s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.particle:nth-child(odd) {
+  background: rgba(212, 175, 55, 0.4);
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 100px), var(--ty, -100px)) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle:nth-child(1) { --tx: 150px; --ty: -150px; left: 10%; top: 20%; }
+.particle:nth-child(2) { --tx: -120px; --ty: 120px; left: 80%; top: 30%; }
+.particle:nth-child(3) { --tx: 180px; --ty: -80px; left: 20%; top: 70%; }
+.particle:nth-child(4) { --tx: -150px; --ty: -120px; left: 70%; top: 10%; }
+.particle:nth-child(5) { --tx: 100px; --ty: 150px; left: 30%; top: 80%; }
+.particle:nth-child(6) { --tx: -180px; --ty: 100px; left: 85%; top: 60%; }
+.particle:nth-child(7) { --tx: 120px; --ty: -150px; left: 15%; top: 40%; }
+.particle:nth-child(8) { --tx: -100px; --ty: -100px; left: 75%; top: 75%; }
+.particle:nth-child(9) { --tx: 150px; --ty: 120px; left: 25%; top: 15%; }
+.particle:nth-child(10) { --tx: -150px; --ty: 150px; left: 65%; top: 45%; }
+.particle:nth-child(11) { --tx: 180px; --ty: 80px; left: 35%; top: 55%; }
+.particle:nth-child(12) { --tx: -120px; --ty: -180px; left: 55%; top: 25%; }
+
+/* Main content */
+.splash-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  animation: contentFadeIn 0.8s ease-out 0.3s both;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Logo container with multiple rings */
+.splash-logo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer glow ring */
+.splash-glow-ring {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  animation: glowRingSpin 8s linear infinite;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2), inset 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+@keyframes glowRingSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Logo wrapper with scale animation */
+.splash-logo-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoScale 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+}
+
+@keyframes logoScale {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.splash-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+  animation: logoPulse 2s ease-in-out 1.7s infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.6));
+    transform: scale(1.05);
+  }
+}
+
+/* Inner pulse ring */
+.splash-pulse-ring {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  animation: pulseRing 2s ease-out infinite;
+  animation-delay: 0.7s;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* Text animations */
+.splash-text {
+  margin-top: 20px;
+}
+
+.splash-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.splash-char {
+  display: inline-block;
+  animation: charSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--char-delay);
+}
+
+@keyframes charSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.splash-subtitle {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: rgba(212, 175, 55, 0.8);
+  margin: 8px 0 0;
+  text-transform: uppercase;
+  animation: subtitleFadeIn 0.8s ease-out 1.2s both;
+}
+
+.splash-tagline {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(212, 175, 55, 0.6);
+  margin: 12px 0 0;
+  font-style: italic;
+  animation: subtitleFadeIn 0.8s ease-out 1.4s both;
+}
+
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading indicator */
+.splash-loader {
+  margin-top: 50px;
+  width: 200px;
+  height: 3px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  animation: loaderFadeIn 0.6s ease-out 1.6s both;
+}
+
+.splash-loader-bar {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(212, 175, 55, 0.8) 50%, 
+    transparent 100%);
+  animation: loaderMove 2s ease-in-out 1.8s infinite;
+}
+
+@keyframes loaderMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes loaderFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade out overlay */
+.splash-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.splash-overlay.fade-out {
+  opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .splash-logo-container {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 30px;
+  }
+
+  .splash-glow-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  .splash-logo-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .splash-pulse-ring {
+    width: 130px;
+    height: 130px;
+  }
+
+  .splash-title {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .splash-subtitle {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .splash-tagline {
+    font-size: 11px;
+  }
+
+  .splash-loader {
+    width: 150px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .splash-logo-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+  }
+
+  .splash-glow-ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .splash-logo-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .splash-pulse-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .splash-title {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .splash-subtitle {
+    font-size: 12px;
+  }
+
+  .splash-tagline {
+    font-size: 10px;
+  }
+}

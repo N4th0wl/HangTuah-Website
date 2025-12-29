@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-background: #050505;
+  --color-surface: rgba(14, 14, 14, 0.92);
+  --color-gold: #d4af37;
+  --color-gold-soft: rgba(212, 175, 55, 0.35);
+  --color-text-primary: #f4f0e8;
+  --color-text-muted: rgba(244, 240, 232, 0.72);
+  --color-border: rgba(212, 175, 55, 0.22);
+  --gradient-gold: linear-gradient(135deg, #c29f2d 0%, #f5d875 50%, #b8891e 100%);
+
+  font-family: 'Montserrat', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--color-background);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
