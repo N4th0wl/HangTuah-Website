@@ -639,19 +639,17 @@ This project is part of the UAS (Final Exam) for IF451 - Advanced Web Programmin
 
 ## 👥 Team
 
-**Project**: Hang Tuah Toastery
+**Project**: Hang Tuah Toastery - Community Service Project
 **Course**: IF451 - Advanced Web Programming
 **Institution**: Universitas Multimedia Nusantara (UMN)
-**Semester**: 3
 
 ---
 
 ## 📞 Support
 
 For issues or questions:
-- 📧 Email: admin@hangtuah.com
-- 💬 WhatsApp: +62 877 1111 2222
-- 🌐 Website: http://localhost:5173
+- 📧 Email: ivandernathanaelk@gmail.com
+- 💬 WhatsApp: +62877 1565 8420
 
 ---
 
@@ -668,5 +666,5 @@ For issues or questions:
 
 ---
 
-**Last Updated**: December 10, 2025
+**Last Updated**: December 30, 2025
 **Status**: ✅ Active Development
