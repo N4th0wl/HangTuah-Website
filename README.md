@@ -2,8 +2,6 @@
 
 A luxurious restaurant management and ordering system showcasing South East Asian cuisine with a modern, elegant interface.
 
-**Project Status**: ✅ Active Development
-
 ---
 
 ## 📋 Table of Contents
